@@ -72,7 +72,8 @@
     [@"app.domain=" stringByAppendingString:_domain],
     [@"app.bundle=" stringByAppendingString:bundleID],
     [@"device.idfa=" stringByAppendingString:advertiserID],
-    @"events=1"
+    @"events=1",
+    @"autoplay=0"
   ];
 
   NSURLComponents *url = [NSURLComponents componentsWithString:baseUrl];
@@ -82,6 +83,8 @@
   NSURLRequest *request = [NSURLRequest requestWithURL:url.URL
                                            cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
                                        timeoutInterval:5.0];
+
+  NSLog(@"Loading URL: %@", request.URL);
   [_webview loadRequest:request];
 }
 
@@ -110,7 +113,7 @@
 {
   if ([request.URL.scheme isEqualToString:@"vpaid"]) {
     NSString *event = request.URL.host;
-    [self performSelector:@selector(vpaidEvent:) withObject:event afterDelay:0.1];
+    [self performSelector:@selector(vpaidEvent:) withObject:event afterDelay:0.3];
     return NO;
   }
 
@@ -133,7 +136,7 @@
 
   if ([event isEqualToString:@"AdLoaded"]) {
     _loaded = YES;
-    [self startAd];
+    [self performSelector:@selector(startAd) withObject:nil afterDelay:0.5];
   }
 
   [_delegate vpaidViewController:self didReceiveEvent:event];
