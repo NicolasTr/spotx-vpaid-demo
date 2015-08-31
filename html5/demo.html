@@ -74,7 +74,9 @@
         'autoplay': $('#autoplay').is(':checked')
       });
 
-      $('#adContainer').empty().append($('<iframe>').attr('src', url));
+      $('#adContainer').empty()
+        .append($('<iframe>').attr('src', url))
+        .append($('<div class="caption">').text('Tag URL: ' + url));
 
       e.preventDefault();
       return false;
