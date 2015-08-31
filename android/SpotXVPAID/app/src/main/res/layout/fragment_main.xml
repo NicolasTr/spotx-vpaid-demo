@@ -5,11 +5,34 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivityFragment">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Channel ID"
+        android:editable="false"
+        android:id="@+id/channel_id_label"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="85394"
+        android:id="@+id/channel_id"
+        android:layout_below="@+id/channel_id_label"
+        android:layout_centerHorizontal="true" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Play Ad"
         android:id="@+id/play_button"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/channel_id"
         android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>
