@@ -33,6 +33,11 @@
       <label for="exampleInputEmail1">Channel ID</label>
       <input id="channelId" type="text" class="form-control" value="85394">
     </div>
+    <div class="checkbox">
+       <label>
+         <input id="autoplay" type="checkbox" checked> autoplay (will not work in Safari)
+       </label>
+     </div>
     <button id="playAd" class="btn btn-default">Submit</button>
   </form>
 
@@ -66,7 +71,7 @@
 
       var url = 'http://nameless-tundra-9674.herokuapp.com/vpaid/' + channelId + '?' + $.param({
         'app.domain': 'com.spotxchange.vpaid',
-        'autoplay': true
+        'autoplay': $('#autoplay').is(':checked')
       });
 
       $('#adContainer').empty().append($('<iframe>').attr('src', url));
