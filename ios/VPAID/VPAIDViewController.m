@@ -71,7 +71,8 @@
   NSArray *query = @[
     [@"app.domain=" stringByAppendingString:_domain],
     [@"app.bundle=" stringByAppendingString:bundleID],
-    [@"device.idfa=" stringByAppendingString:advertiserID]
+    [@"device.idfa=" stringByAppendingString:advertiserID],
+    @"events=1"
   ];
 
   NSURLComponents *url = [NSURLComponents componentsWithString:baseUrl];
